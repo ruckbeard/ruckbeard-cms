@@ -1,0 +1,74 @@
+<?php
+require_once('../../functions.inc'); //necessary includes
+$tpl = new Savant3(); // templating system
+$Blog = new Blog; // blog post class
+$User = new User;
+
+// define variables
+$login = $comPost = $comForm = $postIdArray = $bookmark = $archiveText = $emailErr = $passErr = ""; // empty vars
+$url = curPageURL();
+$name = "yiffhkf";;
+$postId = "79";;
+
+//generate the share bar
+$bookmark .= "<!-- AddToAny BEGIN -->";
+$bookmark .= "<a class=\"a2a_dd\" href=\"http://www.addtoany.com/share_save\"><img src=\"http://static.addtoany.com/buttons/share_save_171_16.png\" width=\"171\" height=\"16\" border=\"0\" alt=\"Share\"/></a>";
+$bookmark .= "<script type=\"text/javascript\" src=\"//static.addtoany.com/menu/page.js\"></script>";
+$bookmark .= "<!-- AddToAny END -->";
+
+$login = $Blog->loginForm($User->isLoggedIn, curPageURL(), $baseUrl);
+$timezone= $User->timezone;
+
+//generate the blog post
+$blogPosts = $Blog->singlePost($postId, $baseUrl, $User->isLoggedIn, $User->id);
+//generate the comments
+$comPost = $Blog->comments($postId, $baseUrl);
+//generate the page links
+$lynx = $Blog->singlePostLynx($postId, $baseUrl);
+
+if (!$User->isLoggedIn)
+{
+	// generate comment form
+	$comForm = "
+<form id='comment' action='".$baseUrl."comment.php?post=". $postId ."' method='post'>
+<input id='commentName' name='commentName' value='Anonymous' >
+<input id='commentEmail' name='commentEmail' placeholder='Email (Optional)'>
+<textarea rows='10' name='comment' placeholder='Write your comments here'></textarea>
+<input type='hidden' name='location' value='". $url ."'>
+<input id='commentSubmit' type='submit' value='Submit'>
+</form>";
+}
+else
+{
+	// generate comment form
+	$comForm = "
+<form id='comment' action='".$baseUrl."comment.php?post=". $postId ."' method='post'>
+<input id='commentName' name='commentName' value='".$User->name."' readonly>
+<input id='commentEmail' name='commentEmail' value='".$User->email."' readonly>
+<textarea rows='10' name='comment' placeholder='Write your comments here'></textarea>
+<input type='hidden' name='location' value='". $url ."'>
+<input id='commentSubmit' type='submit' value='Submit'>
+</form>";
+}
+ 
+// Assign values to the Savant instance.
+$tpl->title = $name; // page title
+$tpl->blog = $blogPosts; // blog posts that were generated
+$tpl->comments = $comPost; // comments that were generated
+$tpl->lynx = $lynx; // page links
+$tpl->comForm = $comForm; // comment submit form
+$tpl->login = $login; // login form
+$tpl->share = $bookmark; // share bar
+$tpl->archive = $Blog->archiveText(); // archive links
+if (isset($_COOKIE['timezone']))
+{
+	$tpl->timezone = $_COOKIE['timezone'];
+}
+else
+{
+	$tpl->timezone = '';
+}
+
+// Display a template using the assigned values.
+$tpl->display('yiffhkf.tpl.html');
+?>

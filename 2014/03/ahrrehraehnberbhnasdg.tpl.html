@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Place inside the <head> of your HTML -->
+<title><?php echo $this->eprint($this->title); ?></title>
+<script src="../../jquery-1.11.0.min.js"></script>
+<link href="../../blog.css" rel="stylesheet" type="text/css">
+<?php $timezone = $this->timezone; ?>
+<script src="../../timezone.js"></script>
+<script>
+$(document).ready(function() {
+	if("<?php echo $timezone; ?>".length==0){
+		var visitortime = TimezoneDetect()/60*-1;
+			
+		$.ajax({
+			type: "GET",
+			url: "http://127.0.0.1/ruckbeard/timezone.php",
+			data: 'time='+ visitortime,
+			success: function(){
+				location.reload();
+			}
+		});
+	}
+});
+(function(doc, script) {
+  var js, 
+      fjs = doc.getElementsByTagName(script)[0],
+      frag = doc.createDocumentFragment(),
+      add = function(url, id) {
+          if (doc.getElementById(id)) {return;}
+          js = doc.createElement(script);
+          js.src = url;
+          id && (js.id = id);
+          frag.appendChild( js );
+      };
+      
+    // Google+ button
+    add('http://apis.google.com/js/plusone.js');
+    // Facebook SDK
+    add('//connect.facebook.net/en_US/all.js#xfbml=1&appId=200103733347528', 'facebook-jssdk');
+    // Twitter SDK
+    add('//platform.twitter.com/widgets.js');
+
+    fjs.parentNode.insertBefore(frag, fjs);
+}(document, 'script'));
+</script>
+</head>
+<body style="position: relative; min-height: 100%; top: 0px;">
+<base href="/ruckbeard/" />
+<div class="header"> </div>
+<div class="container">
+<div class="sidebar">
+<?php echo $this->eprint($this->login); ?>
+<?php echo $this->eprint($this->archive); ?>
+<?php echo $this->eprint($this->timezone); ?>
+</div>
+<div class="blogContainer">
+<div id="blogSkeleton">
+<div class='blog'>
+<?php echo $this->eprint($this->blog); ?>
+</div>
+<div class='comments'>
+<?php if (is_array($this->comments)): ?>
+<?php echo $this->eprint($this->comForm); ?>                
+<?php foreach ($this->comments as $key => $val): ?>
+<?php echo $this->eprint($val); ?>
+<?php endforeach; ?>
+<?php else: ?>
+<?php echo $this->eprint($this->comForm); ?>
+<p id="noComments">There are no comments yet.</p>
+<?php endif; ?>
+</div>
+<div class="pages_single">
+<?php echo $this->eprint($this->lynx); ?>
+</div> 
+</div>   
+</div>
+</div>
+<div class="footer"><p>Copyright 2014 | Kevin VanderWulp | Ruckbeard.com</div>
+</body>
+</html>

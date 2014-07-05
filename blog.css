@@ -1,0 +1,486 @@
+@charset "utf-8";
+/* CSS Document */
+		html, body{
+			margin: 0 auto;	
+			background-color:#FFF;
+			height: 100%;
+			font-size:.9em;
+			font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		}
+		
+		.container {
+			width: 1160px;
+			height: 100%;
+			margin: 0 auto;
+			min-height:100%;
+   			position:relative;
+			padding-bottom: 140px;
+		}
+		
+		.sidebar{
+			width: 280px;
+			float: right;
+			background-color: #FFF;
+			color: #FFF;
+			border-radius: 15px;
+			
+		}
+		
+		.blogContainer {
+			width: 880px;
+			background-color: #FFFFFF;
+			margin: 0 auto;
+			border-radius: 15px;
+			/*box-shadow: 0px 0px 15px 2px #333 inset;*/
+			float: left;
+			min-height: 709px;
+		}
+		
+		.blogContainer_admin {
+			width: 100%;
+			background-color: #FFFFFF;
+			margin: 0 auto;
+			border-radius: 15px;
+			/*box-shadow: 0px 0px 15px 2px #333 inset;*/
+			float: left;
+			min-height: 709px;
+		}
+		
+		.header {
+			margin: 0 auto;
+			height: 100px;
+			margin-bottom: 40px;
+			background-color: #444;
+	
+		}
+		
+		.footer {
+			height: 100px;
+			width: 100%;
+			margin-top: 40px;
+			background-color: #444;
+			float: right;			/*box-shadow: 0 0 20px 3px #FF1100 inset;*/
+		}
+		
+		.blog {
+			width: 880px;
+			margin: 0 auto;
+			padding: 20px 0 20px 0;
+			margin: 0 auto;
+		}
+		
+		.blog_list {
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 0;
+		}
+		
+		.comments {
+			width: 880px;
+			margin: 0 auto;
+		}
+		
+		.title {
+			font-size: 1.75em;
+			display: block;
+			padding: 5px 10px 5px 10px;
+			background-color: #444444
+		}
+		
+		.title a:link {
+			color: #FFF;
+			text-decoration:none;
+		}
+		
+		.title a:visited {
+			color: #FFF;
+			text-decoration:none;
+		}
+		
+		.title a:hover {
+			text-decoration:underline;
+		}
+		
+		.title p {
+			color: #FFF;
+			text-decoration:none;
+			font-size:.45em;
+			margin:0;
+			padding-top: 4px;
+		}
+		
+		.tags a:link {
+			color: #0094AC;	
+		}
+		
+		.tags a:visited {
+			color: #0094AC;	
+		}
+		
+		.tags a:hover {
+			text-decoration:underline;	
+		}
+				
+		/*.commentTitle {
+			font-family:Verdana, Geneva, sans-serif;
+			font-size: 1.1em;
+			display: block;
+			padding: 5px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+			margin: 0;
+			background-color:#000;
+			color: #FFF;
+		}*/
+		
+		a:link {
+			color: #0094AC;
+			text-decoration:none;	
+		}
+		
+		a:visited {
+			color: #0094AC;
+			text-decoration:none;
+		}
+		
+		.postMultiple {
+			display: block;
+			word-wrap:break-word;
+			padding: 0 20px;
+			margin: 1em 0;
+		}
+		
+		.postSingle {
+				
+			display: block;
+			word-wrap:break-word;
+			word-break:break-strict;
+			padding: 10px 20px 10px 20px;
+		}
+		
+		.commentPost {
+			/*background-color:#000;
+			color: #FFF;
+			margin: 0;
+			display: block;
+			word-wrap:break-word;
+			word-break:break-strict;
+			padding: 5px;
+			min-height:40px;*/
+			width:840px;
+			min-height:20px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+			background: white;
+			color:black;
+			padding:5px;
+			position:relative;
+			word-wrap:break-word;
+			-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+			-webkit-border-radius:5px;
+			border-radius:5px;
+			border: 3px solid #444;
+			margin-bottom:4em;
+		}
+		
+		.date {
+			display: block;
+			padding: 5px 10px;
+			font-size:.9em;
+		}
+		
+		.tags {
+			display: block;
+			padding: 5px 10px;
+			font-size:.9em;
+			margin-bottom: 1em;
+		}
+		
+		.share {
+			display: block;
+			padding: 5px 10px;
+			font-size:.9em;
+		}
+		
+		
+		.date a:link {
+			text-decoration:none;	
+		}
+		
+		.date a:visited {
+			text-decoration:none;
+		}
+		
+		.commentPost p {
+			width:96.5%;
+			margin: 0 auto 1em;	
+		}
+		
+		.commentTitle {
+			display:block; 
+			padding-top:8px;
+			padding-left:8px;	 
+			/*border-bottom: 1px dashed #FFF;*/
+			font-size:1em;	
+		}
+		
+		.commentDate {
+			padding-left:8px;	
+			display: block;
+			font-size:.7em;
+			margin-bottom:1em;
+		}
+		
+		#commentBottom {
+			color: #0094AC;
+			text-decoration:none;
+		}
+		
+		.pages {
+			border-top: 2px solid #CCC;
+			margin: 0 auto;
+			width: 600px;
+			display:block;
+			text-align:center;
+		}
+		
+		.pages_single {
+			border-top: 2px solid #CCC;
+			margin: 0 125px;
+			width: 600px;
+			display:inline-flex;
+		}
+		
+		#commentSubmit {
+			display:block;
+			width: 600px;
+			border: 1px Solid #666;	
+			border-radius: 5px;
+		}
+		
+		#commentName {
+			border: 1px Solid #666;	
+			border-radius: 5px;
+		}
+		
+		#commentEmail {
+			border: 1px Solid #666;	
+			border-radius: 5px;
+		}
+		
+		#comment {
+			margin: 0 auto;
+			width: 600px;
+			margin-bottom: 40px;
+		}
+		
+		#noPosts{
+			margin: 0 auto;
+			font-size: 1.25em;
+			font-family:Verdana, Geneva, sans-serif;	
+			text-align:center;
+			display:block;
+			width:600px;
+		}
+		
+		#noComments{
+			margin: 0 auto 200px;
+			font-size:1.25em;
+			font-family:Verdana, Geneva, sans-serif;
+			text-align:center;
+			display:block;
+			width:600px;
+			
+		}
+		
+		textarea {
+			resize: vertical;
+			width: 600px;	
+			border: 1px Solid #666;	
+			border-radius: 5px;
+		}
+		
+		input {
+			display: block;
+		}
+		
+		#post {
+			margin: 0 auto;
+			width: 600px;
+		}
+		
+		#newPostForm {
+			margin: 0 auto;
+			width: 600px;
+		}
+		
+		#updatePostForm {
+			margin: 0 auto;
+			width: 600px;
+		}
+		
+		#blogSkeleton {
+			min-height:687px;	
+		}
+		
+		.commentPost:before{
+			content:'';
+			display:block;
+			position:absolute;
+			top:100%;
+			left:30px; /*should be set to 100% */
+			width:0;
+			height:0;
+			border-color: #444 transparent transparent #444; /*border color should be same as div div background color*/
+			border-style: solid;
+			border-width: 17px;
+		}
+		
+		.commentPost:after{
+			content:'';
+			display:block;
+			position:absolute;
+			top:100%;
+			left:33px; /*should be set to 100% */
+			width:0;
+			height:0;
+			border-color: white transparent transparent white; /*border color should be same as div div background color*/
+			border-style: solid;
+			border-width: 13px;
+		}
+		
+		#login {
+			min-height: 100px;
+			margin: 20px;
+		}
+		
+		#loginTitle {
+			margin:0;
+			padding-left: 5px;
+			background-color:#444;
+			width:100%;	
+			color: #FFF;
+		}
+		
+		#username {
+			border: 1px Solid #666;	
+			border-radius:5px;
+			width:100%;
+		}
+		
+		#pass {
+			border: 1px Solid #666;
+			border-radius:5px;
+			width:100%;
+		}
+		
+		#lSubmit {
+			border: 1px Solid #666;
+			margin-left:187px;
+			border-radius:5px;
+		}
+		
+		#archive {
+			margin: 20px;	
+		}
+		
+		#archiveTitle {
+			margin:0;
+			padding-left: 5px;
+			background-color:#444;
+			width:100%;
+		}
+		
+		.error {
+			color:#FF4545;	
+		}
+		
+		#regFormDiv {
+			width: 600px;
+			margin: 0 auto;	
+		}
+		
+		#regTitle {
+			background-color:#444;
+			color:#FFF;
+			display:block;	
+			padding-left:5px;
+		}
+		
+		#regInput {
+			border-radius: 5px;
+			border: 1px Solid #666;	
+		}
+		
+		#regButton {
+			border: 1px Solid #666;
+			margin:5px;
+			border-radius:5px;
+			float:right;	
+		}
+
+		#loginPageInput {
+			border: 1px Solid #666;
+			border-radius:5px;	
+		}
+		
+		.admin_post_table {
+			width: 100%;
+			border-collapse:collapse;
+		}
+		
+		.admin_post_table td {
+			border: 0px;
+		}
+		
+		.admin_post_table tr {
+			background-color: #FFF;	
+		}
+		
+		.admin_post_table tr:nth-child(odd){
+			background-color: #E0E0E0;
+		}
+		
+		.admin_post_table tr:nth-child(even){
+			background-color:  #FFF;
+		}
+		
+		.tag {
+			background-color: #444;
+			color: #FFFFFF;
+			border-radius: 2px;
+			margin:1px;	
+			padding:0 4px;
+			display:inline-block;
+		}
+		
+		.tagPost {
+			color: #0094AC;
+			display:inline-block;
+		}
+		
+		#likeCount {
+			width: 10px;
+			min-height:10px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+			background: white;
+			color:black;
+			padding: 1px 10px;
+			position:relative;
+			-moz-border-radius:3px; /*add some nice CSS3 round corners*/
+			-webkit-border-radius:3px;
+			border-radius:3px;	
+			margin-left: 4px;
+		}
+		
+		#commentCount {
+			width: 10px;
+			min-height:10px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+			background: white;
+			color:black;
+			padding: 1px 10px;
+			position:relative;
+			-moz-border-radius:3px; /*add some nice CSS3 round corners*/
+			-webkit-border-radius:3px;
+			border-radius:3px;	
+			margin-left: 4px;
+		}
+		
+		
